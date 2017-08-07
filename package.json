@@ -8,8 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "ramda": "0.24.1",
-    "ramdascript": "^0.3.0"
+  "peerDependencies": {
+    "ramdascript": ">=0.5.0"
   }
 }
