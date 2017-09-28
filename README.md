@@ -1,33 +1,70 @@
 [![npm](https://img.shields.io/npm/v/ramdascript-loader.svg)](https://www.npmjs.com/package/ramdascript-loader)
 
-# ramdascript-loader
-
-inspire by ramdascript
+# RamdaScript Loader
 
 
-## install
+## Install
 
 `npm install ramdascript-loader --save-dev`
 
-## webpack2, 3
+## Configuration
 
-```
+__webpack.config.js__
+
+```js
 module.exports = {
- ...
- module: {
-   rules: [{
-     test: /\.ram$/,
-     loaders: ['babel-loader', 'ramdascript-loader']
-   }
-    ...
-   ]
- }
+    module: {
+        rules: [
+            {
+                test: /\.ram$/,
+                loaders: ['babel-loader', 'ramdascript-loader']
+            }
+        ]
+    }
 }
 ```
 
+## Example
 
-## with React
+__webpack.config.js__
 
-just using babel-preset-react
+```js
+var webpack = require('webpack')
 
-have fun
+module.exports = {
+    entry: './src/app.ram',
+    devtool: 'source-map',
+    resolve: {
+        extensions: ['.js', '.json', '.ram']
+    },
+    output: {
+        filename: 'dist/bundle.js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.ram$/,
+                loaders: ['babel-loader', 'ramdascript-loader']
+            }
+        ]
+    },
+
+    // dev server config
+    devServer: {
+        contentBase: './',
+        compress: true,
+        port: 8000
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ]
+}
+```
+
+## Maintainers
+
+[Quanweili](https://github.com/Qquanwei)
+
+[Yosbel Marín](https://github.com/yosbelms)
+
+MIT
